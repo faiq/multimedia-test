@@ -74,13 +74,16 @@ func main() {
 			state[line] = 1
 		}
 	}
+
 	pl := make(PairList, len(lines))
 	i := 0
+
 	for k, v := range state {
 		pl[i] = Pair{k, v}
 		i++
 	}
 	sort.Sort(sort.Reverse(pl))
+
 	for _, pair := range pl {
 		if pair.Value > 1 {
 			fmt.Printf("%s %d\n", pair.Key, pair.Value)
